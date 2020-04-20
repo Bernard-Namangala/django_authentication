@@ -1,0 +1,14 @@
+db.sqlite3
+venv
+sent_emails
+__pycache__
+
+*.log
+*.pot
+*.pyc
+media
+# Backup files #
+*.bak
+.vscode
+bootstrap
+jquery.min.3.4.1.js

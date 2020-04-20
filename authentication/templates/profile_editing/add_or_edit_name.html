@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="signin-signup main">
+  <div class="main-form">
+    <form method="POST" id="login-form">
+      {% load widget_tweaks %} {% csrf_token %}
+      <div class="form-group current-info">
+        <p class="text-center">
+          Your current name is {{request.user.name}}
+        </p>
+      </div>
+      <div class="form-group">
+        <h2 class="text-center pt-2">Enter a name</h2>
+      </div>
+
+      {% if non_form.errors %} {{non_form.errors}} {% endif %}
+      <div class="form-group text-center">
+        {{form.name|add_class:'form-control input'}}
+
+        <div class="error-list" id="email_error">
+          {{form.name.errors}}
+        </div>
+      </div>
+      <div class="form-group">
+        <button
+          type="submit"
+          name="submit-sign-in-form"
+          id="submit-sign-in-form"
+          class="form-control"
+        >
+          Add name
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

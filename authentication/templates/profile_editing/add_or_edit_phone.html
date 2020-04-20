@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="signin-signup main">
+  <div class="main-form">
+    <form method="POST" id="login-form">
+      {% load widget_tweaks %} {% csrf_token %}
+      <div class="form-group current-info">
+        <p class="text-center">
+          {% if request.user.phone %} Your current phone number is
+          +260{{request.user.phone}} {% endif %}
+        </p>
+      </div>
+      <div class="form-group">
+        <h2 class="text-center pt-2">
+          {% if request.user.phone %}Enter your new phone number {% else %}
+          Enter a phone number{% endif %}
+        </h2>
+      </div>
+
+      {% if non_form.errors %} {{non_form.errors}} {% endif %}
+      <div class="input-group text-center">
+        <div class="input-group-prepend">
+          <span
+            class="input-group-text primary-background"
+            id="country-code-addon"
+          >
+            +260
+          </span>
+        </div>
+        {{form.phone|add_class:'form-control input'}}
+      </div>
+      <div class="error-list" id="email_error">
+        {% if form.phone.errors%} {{form.phone.errors}} {% endif %}
+      </div>
+      <div class="form-group">
+        <button
+          type="submit"
+          name="submit-sign-in-form"
+          id="submit-sign-in-form"
+          class="form-control"
+        >
+          {% if request.user.phone %} change{% else %} add{% endif %} number
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<div class="signin-signup main">
+  <div class="main-form">
+    <form method="POST" id="sign-up-form">
+      {% load widget_tweaks %}
+      <h2 style="text-align: center; padding: 0;">Sign up</h2>
+      {% csrf_token %}
+
+      <div class="form-group text-center">
+        <label for="{{form.username.id_for_label}}">{{form.email.label}}</label>
+        {{form.email|add_class:'form-control input'}}
+        <div class="error-list" id="email_error">
+          {% if form.email.errors %} {{form.email.errors.0}} {% endif %}
+        </div>
+      </div>
+
+      <div class="form-group text-center">
+        <label for="{{form.password1.id_for_label}}">
+          {{form.password1.label}}
+        </label>
+        {{form.password1|add_class:'form-control input'}}
+        <div class="error-list" id="password_error1">
+        <div class="help-text">Password must contain atleast 8 characters</div>
+      </div>
+
+      <div class="form-group text-center">
+        <label for="{{form.password2.id_for_label}}"
+          >{{form.password2.label}}</label
+        >
+        {{form.password2|add_class:'form-control input'}}
+        <div class="error-list" id="password_error2">
+          {% if form.password2.errors %} {{form.password2.errors.0}} {% endif %}
+        </div>
+      </div>
+      <div class="form-group">
+        <p class="text-center">
+          already have an account
+          <a href="{% url 'login' %}" class="form-link">login</a>
+        </p>
+      </div>
+      <div class="form-group">
+        <button
+          type="submit"
+          name="submit-sign-up-form"
+          id="submit-sign-up-form"
+          class="form-control"
+        >
+          Sign up
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock content %} {% block validationjs %}
+<script src="{% static 'js/registration_validation.js' %}"></script>
+{% endblock %}

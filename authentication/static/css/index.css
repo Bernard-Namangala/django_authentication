@@ -1,0 +1,291 @@
+:root {
+  --main: #0dacf2;
+  --comp: #f2530d;
+  --comp-hover: #fa770b;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.main {
+  width: 32rem;
+  height: auto;
+  margin: 2% auto;
+  border-radius: 0.6rem;
+  border: 1px solid var(--main);
+  padding-bottom: 3rem;
+}
+
+.signin-signup {
+  min-height: 60vh;
+  height: auto;
+  width: 27rem;
+  padding-bottom: 1rem;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-form {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+#sign-up-form {
+  width: 90%;
+  height: 100%;
+}
+#login-form {
+  width: 90%;
+  height: 100%;
+}
+
+#submit-sign-in-form,
+#submit-sign-up-form {
+  width: 15rem;
+  margin: 2rem auto;
+  background: var(--comp);
+  color: #fff;
+}
+
+.error-list,
+.errorlist {
+  color: red;
+  text-align: center;
+  padding-top: 0.2rem;
+}
+.errorlist {
+  list-style: none;
+  padding-left: 0;
+}
+
+.help-text {
+  color: #000;
+  text-align: center;
+  padding-top: 0.2rem;
+}
+
+.input {
+  border: 1px solid var(--main);
+}
+
+.form-link {
+  color: var(--comp);
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 460px) {
+  .main {
+    width: 94%;
+  }
+}
+
+.primary-background {
+  background-color: var(--main);
+  color: #fff;
+}
+
+#country-code-addon {
+  border: 1px solid var(--main);
+}
+/* navigation bar */
+#navbar {
+  width: 100vw;
+  background-color: var(--main);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 0;
+}
+#navigation {
+  width: 100vw;
+  background-color: var(--main);
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+#search-form-holder {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 451px) {
+  #top-bars {
+    order: 3;
+  }
+  #search-form-holder {
+    order: 2;
+    flex-basis: auto;
+    justify-self: left;
+    flex-grow: 1;
+    max-width: 700px;
+    padding-right: 1rem;
+    box-sizing: border-box;
+  }
+}
+
+#search-form input {
+  border: 0;
+  border-radius: 7px 0px 0px 7px;
+}
+#search-form button {
+  border: 0;
+  border-radius: 0px 7px 7px 0px;
+  background-color: var(--comp);
+  color: #fff;
+}
+
+#search-form button:hover {
+  background-color: var(--comp-hover);
+}
+
+#search-form {
+  display: flex;
+}
+
+.navbar-list {
+  flex: 1;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+#top-list {
+  width: 100%;
+  margin-bottom: 0.3rem;
+}
+
+.middle-div {
+  display: flex;
+  box-sizing: border-box;
+  overflow: auto;
+  white-space: nowrap;
+  width: 100%;
+  margin-top: 0.1rem;
+  text-align: center;
+}
+
+.navbar-list ul li a {
+  cursor: pointer;
+}
+.navbar-list ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+}
+
+.navbar-list ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  text-align: center;
+}
+.navbar-list ul li {
+  padding: 0 1rem;
+}
+
+.navbar-list a:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  /* position: absolute; */
+  background: #fff;
+  transition: width 0.4s ease 0s, left 0.4s ease 0s;
+  width: 0;
+}
+.navbar-list a:hover:after {
+  width: 100%;
+  left: 0;
+}
+
+/* end of navigation bar csss */
+
+/* accounts page */
+
+.info-list-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+}
+
+.info-list-row {
+  max-width: 920px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.account-image-holder {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.account-image-holder img {
+  max-width: 200px;
+  height: auto;
+  max-height: 170px;
+  min-height: 170px;
+  border: 1px solid #333;
+  border-radius: 10px 10px;
+}
+
+.heading {
+  text-align: center;
+  background: var(--main);
+  color: #fff;
+  width: 100%;
+}
+.info-list {
+  list-style: none;
+  width: 100%;
+  padding-top: 0.4rem;
+  box-sizing: border-box;
+}
+.info-list-item {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 0.4rem;
+  box-sizing: border-box;
+  margin-bottom: 0.4rem;
+  border-bottom: 1px solid #333;
+  flex-wrap: wrap;
+}
+
+.info-list-item a {
+  text-decoration: none;
+}
+.fullname-holder {
+  text-align: center;
+}
+
+.info-list-value {
+  display: flex;
+  overflow: hidden;
+}
+
+.current-info {
+  background-color: var(--main);
+  width: 100%;
+  border-radius: 0 0 10px 10px;
+  color: #fff;
+  word-wrap: break-word;
+}
+
+/* end of accounts page */

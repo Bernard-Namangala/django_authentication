@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div class="info-list-container">
+  <div class="info-list-row">
+    <div class="account-image-holder">
+      {% if user.profile_picture %}
+      <img src="{{user.profile_picture.url}}" />
+      {% endif %}
+    </div>
+    <div class="fullname-holder">
+      <h2>{{user.name}}</h2>
+    </div>
+    <div></div>
+  </div>
+  <div class="info-list-row">
+    <h3 class="heading">Contact info</h3>
+    <ul class="info-list">
+      <li class="info-list-item">
+        <span class="label"
+          >Email <a href="{% url 'edit_email' %}">edit</a></span
+        >
+        <span class="info-list-value">{{user.email}}</span>
+      </li>
+      <li class="info-list-item">
+        <span class="label"
+          >Phone
+          <a href="{% url 'edit_phone' %}"
+            >{% if user.phone %}edit {% else %}add{% endif %}</a
+          ></span
+        >
+        <span class="info-list-value">{{user.phone}}</span>
+      </li>
+    </ul>
+  </div>
+  <div class="info-list-row">
+    <h3 class="heading">Personal info</h3>
+    <ul class="info-list">
+      <li class="info-list-item">
+        <span class="label"
+          >Name
+          <a href="{% url 'edit_name' %}">
+            {% if user.name %} edit {% else %} add {% endif %}
+          </a>
+        </span>
+        <span class="info-list-value">{{user.name}} </span>
+      </li>
+    </ul>
+  </div>
+  <div class="info-list-row">
+    <h3 class="heading">Security</h3>
+    <ul class="info-list">
+      <li class="info-list-item">
+        <span class="label"
+          >password <a href="{% url 'password_reset' %}">change</a></span
+        >
+        <span class="info-list-value"></span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+{% endblock %}

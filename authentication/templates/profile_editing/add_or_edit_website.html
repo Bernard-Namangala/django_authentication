@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="signin-signup main">
+  <div class="main-form">
+    <form method="POST" id="login-form">
+      {% load widget_tweaks %} {% csrf_token %}
+      <div class="form-group current-info">
+        <p class="text-center">
+          {% if request.user.website %} Your current phone number is
+          +260{{request.user.website}} {% endif %}
+        </p>
+      </div>
+      <div class="form-group">
+        <h2 class="text-center pt-2">
+          {% if request.user.website %}Change your website url {% else %} Enter
+          your website url{% endif %}
+        </h2>
+      </div>
+
+      {% if non_form.errors %} {{non_form.errors}} {% endif %}
+      <div class="form-group text-center">
+        {{form.website|add_class:'form-control input'}}
+      </div>
+      <div class="error-list" id="email_error">
+        {% if form.website.errors%} {{form.website.errors}} {% endif %}
+      </div>
+      <div class="form-group">
+        <button
+          type="submit"
+          name="submit-sign-in-form"
+          id="submit-sign-in-form"
+          class="form-control"
+        >
+          {% if request.user.website %} change{% else %} add{% endif %} Website
+          url
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
