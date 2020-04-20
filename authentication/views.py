@@ -31,7 +31,7 @@ def register(request):
             password = form.cleaned_data['password1']
             user = authenticate(email=email, password=password)
             login(request, user)
-            return redirect('register')
+            return redirect(reverse('profile', args=(user.id,)))
     else:
         form = RegistrationForm()
 
@@ -66,7 +66,7 @@ def edit_email_view(request):
             user = User.objects.get(email=request.user.email)
             user.email = new_email
             user.save()
-            return redirect(reverse("profile"), args=(request.user.id,))
+            return redirect(reverse("profile", args=(request.user.id,)))
         return render(request, "profile_editing/edit_email.html", {"form":form})
 
 
